@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  mernfront:
+    build: ./client
+    image: mernfront
+    container_name: mernfront
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mernserver
+  mernserver:
+    build: ./server
+    container_name: mernserver
+    image: mernserver
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongoDB
+  mongoDB:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:
+    driver: local
+
+  

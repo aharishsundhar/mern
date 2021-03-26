@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://mongoDB/devconnector",
+    "jwtToken": "SecretTokensJSON"
+}
